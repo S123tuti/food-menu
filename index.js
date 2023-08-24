@@ -20,6 +20,7 @@ const userController = require('./controllers/userController');
 const hotelMenuController = require('./controllers/hotelMenuController');
 
 app.post('/register', userController.registerUser);
+app.post('/hotels/create', hotelMenuController.registerHotel);
 app.get('/menu/:hotelName', hotelMenuController.getMenuByHotelName);
 
 app.listen(port, () => {

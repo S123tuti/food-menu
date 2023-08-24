@@ -1,5 +1,18 @@
 const HotelMenu = require('../models/hotelMenu');
 
+
+module.exports = {
+    registerHotel: async (req, res) => {
+        try {
+            const newHotel = new Hotel(req.body);
+            await newHotel.save();
+            res.status(201).json({ message: 'Hotel registered successfully' });
+        } catch (error) {
+            res.status(500).json({ message: 'An error occurred while registering the hotel' });
+        }
+    }
+};
+
 module.exports = {
     getMenuByHotelName: async (req, res) => {
         try {
